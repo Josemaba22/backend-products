@@ -44,4 +44,13 @@ public class CategoryServiceImpl implements CategoryService {
         return category;
 
     }
+
+    @Override
+    public Category updateById(Long id, CategoryRequest request) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException("Category not found"));
+        category.setName(request.getName());
+        category.setDescription(request.getDescription());
+        return categoryRepository.save(category);
+    }
 }

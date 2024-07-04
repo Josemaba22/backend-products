@@ -13,4 +13,5 @@ public interface CategoryService {
     Optional<Category> findById(Long id);
     Category save(CategoryRequest request);
     Category deleteById(Long id);
+    Category updateById(Long id, CategoryRequest request);
 }
