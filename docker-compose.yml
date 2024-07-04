@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+  crudproducts-db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: crudproducts
+      MYSQL_ROOT_PASSWORD: root
+    container_name: crudproducts-mysql-docker-compose
+    volumes:
+      - mysql-volume:/var/lib/mysql
+
+  crudproducts-app:
+    build: .
+    image: my-app:v1.4
+    ports:
+      - 8585:9191
+    container_name: crudproducts-app-docker-compose
+    depends_on:
+      - crudproducts-db
+volumes:
+  mysql-volume:
