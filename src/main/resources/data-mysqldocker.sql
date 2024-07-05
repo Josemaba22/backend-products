@@ -9,3 +9,8 @@ INSERT INTO categories (name, description) VALUES
 ('Alimentos', 'Productos alimenticios, snacks y bebidas.'),
 ('Mascotas', 'Artículos y alimentos para mascotas.'),
 ('Tecnología', 'Últimas novedades en tecnología y gadgets.');
+
+INSERT INTO products (name, description, price, category_id)
+VALUES ('Producto 1', 'Descripción del Producto 1', 10.99, 1),
+       ('Producto 2', 'Descripción del Producto 2', 15.49, 2),
+       ('Producto 3', 'Descripción del Producto 3', 7.99, 1);
