@@ -1,5 +1,6 @@
 package com.cristian.crudproducts.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -14,4 +15,5 @@ public interface ProductService {
     Product save(ProductRequest request);
     Product deleteById(Long id);
     Product updateById(Long id, ProductRequest request);
+    List<Product> searchProductsByName(String name);
 }

@@ -1,5 +1,6 @@
 package com.cristian.crudproducts.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,11 @@ public class ProductServiceImpl implements ProductService {
         Category category = categoryRepository.findById(request.getCategoryId()).get();
         product.setCategory(category);
         return productRepository.save(product);
+    }
+
+    @Override
+    public List<Product> searchProductsByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
     }
 
 }

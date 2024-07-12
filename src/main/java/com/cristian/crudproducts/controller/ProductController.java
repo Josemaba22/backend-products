@@ -1,5 +1,7 @@
 package com.cristian.crudproducts.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cristian.crudproducts.dto.ProductRequest;
@@ -63,6 +66,13 @@ public class ProductController {
     public ResponseEntity<Product> updateById(@PathVariable Long id, @RequestBody @Valid ProductRequest request) {
         Product product = productService.updateById(id, request);
         return ResponseEntity.status(HttpStatus.OK).body(product);
+    }
+
+    
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String name) {
+        List<Product> products = productService.searchProductsByName(name);
+        return ResponseEntity.ok(products);
     }
 
 }
