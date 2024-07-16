@@ -1,6 +1,5 @@
 package com.cristian.crudproducts.service.impl;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,8 +66,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> searchProductsByName(String name) {
-        return productRepository.findByNameContainingIgnoreCase(name);
+    public Page<Product> searchProductsByName(Pageable pageable,String name) {
+        return productRepository.findByNameContainingIgnoreCase(pageable, name);
     }
 
 }

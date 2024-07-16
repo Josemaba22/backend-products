@@ -1,7 +1,5 @@
 package com.cristian.crudproducts.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -70,8 +68,8 @@ public class ProductController {
 
     
     @GetMapping("/search")
-    public ResponseEntity<List<Product>> searchProducts(@RequestParam String name) {
-        List<Product> products = productService.searchProductsByName(name);
+    public ResponseEntity<Page<Product>> searchProducts(Pageable pageable ,@RequestParam String name) {
+        Page<Product> products = productService.searchProductsByName(pageable ,name);
         return ResponseEntity.ok(products);
     }
 
