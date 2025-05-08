@@ -1,1 +1,1 @@
-Este proyecto es la mera verdura, porque estoy aprendiendo a usar Spring Boot. XD
+Ejemplo base de api backend spring boot
